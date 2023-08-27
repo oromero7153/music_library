@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState } from 'react' 
 import { Link } from 'react-router-dom'
 
-function GalleryItem(props) {
+function GalleryItem(props){
     let [view, setView] = useState(false)
 
     const simpleStyle = {
@@ -21,7 +21,7 @@ function GalleryItem(props) {
         'backgroundSize': 'cover',
         'color': 'yellow'
     }
-  
+
     const simpleView = () => {
         return (
             <div style={simpleStyle}>
@@ -49,17 +49,14 @@ function GalleryItem(props) {
                 <h4>{props.item.releaseDate}</h4>
             </div>
         )
-    }       
+    }
 
     return (
-        <div onClick={() => setView(!view)}
-        style={{'display': 'inline-block'}}>
-        
+        <div onClick={() =>setView(!view)} style={{'display': 'inline-block'}}>
             {/* This simple ternary shows the simple view when 'view' is false! */}
             {view ? detailView() : simpleView()}
-
         </div>
     )
-
 }
+
 export default GalleryItem
