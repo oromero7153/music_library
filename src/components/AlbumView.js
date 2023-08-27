@@ -1,9 +1,10 @@
 // These components will be making separate API calls from the app
 // component to serve specific data about a given album
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 function AlbumView() {
+    const  navigate = useNavigate() 
     const { id } = useParams()
     const [ albumData, setAlbumData ] = useState([])
 
@@ -27,8 +28,18 @@ function AlbumView() {
         )
     })
 
+    const navButtons = () =>{
+        return(
+        <div>
+            <button onClick={() => navigate(-1)}>Back</button>
+            <button onClick={() => navigate('/')}>Home</button>
+        </div>
+        )
+    }
+
     return (
         <div>
+            {navButtons()}
             {renderSongs}
         </div>
     )
